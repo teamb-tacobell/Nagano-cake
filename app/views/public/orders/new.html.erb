@@ -1,0 +1,51 @@
+<div class="container">
+  <h4>注文情報入力</h4>
+  <%= form_with model: @order, url: orders_info_path do |f| %>
+  <div class="form-group">
+
+    <h6>お支払い方法</h6>
+    <div class="form-check">
+    <%= f.radio_button :cash, 1, checked: true %>
+      <%= f.label :cash, 'クレジットカード' %><br/>
+    <%= f.radio_button :cash, 2 %>
+      <%= f.label :cash, '銀行振込' %>
+    </div>
+
+    <h6>お届け先</h6>
+    <div class="form-check">
+    <%= f.radio_button :residence, 1, checked: true %>
+      <%= f.label :residence, 'ご自身の住所' %><br/>
+      〒<%= current_customer.postcode %>
+        <%= current_customer.residence %></br>
+        <%= current_customer.last_name %><% current_customer.first_name %>
+
+    <%= f.radio_button :residence, 2 %>
+      <%= f.label :residence, '登録済住所から選択' %><br/>
+
+    <%= f.radio_button :residence, 3 %>
+      <%= f.label :residence, '新しいお届け先' %><br/>
+
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th><%= f.label :postcode, "郵便番号(ハイフンなし)" %></th>
+            <td><%= f.number_field :postcode, placeholder: "0000000" %></td>
+          </tr>
+          <tr>
+            <div class="form-group">
+            <th><%= f.label :residence, "住所" %></th>
+            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %></td>
+            </div>
+          </tr>
+          <tr>
+            <th><%= f.label :name, "宛名" %></th>
+            <td><%= f.text_field :name, placeholder: "令和道子" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+  <% end %>
+</div>
