@@ -6,7 +6,10 @@
 
 <p>商品説明</p><%= @item.explanation %>
 
-<p>ジャンル</p>
+<p>ジャンル</p><%= @item.genre.name %>
+
+<p>税込価格（税抜価格）</p>
+　（<%= @item.tax_excluded_price.to_s(:delimited) %>）円</div>
 
 <p>販売ステータス</p>
 <% if @item.is_sold == false %>

@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <h1>商品一覧</h1>
+        <%= link_to "新規投稿", new_admin_item_path %>
          <table class="table">
              <thead>
                  <tr>
@@ -15,9 +16,13 @@
                  <% @items.each do |item| %>
                  <tr>
                      <th><%= item.id %></th>
-                     <th><%= item.name %></th>
-                     <th><%= item.tax_excluded_price %></th>
-                     <th></th>
+                     <th>
+                         <%= link_to admin_item_path(item.id) do %>
+                         <%= item.name %>
+                         <% end %>
+                    </th>
+                     <th><%= item.tax_excluded_price.to_s(:delimited) %></th>
+                     <th><%= item.genre.name %></th>
                      <th>
                         <% if item.is_sold == false %>
                           販売停止中

@@ -2,7 +2,7 @@
   <div class="row">
     <h4>会員情報編集</h4>
     <table class="table">
-      <%= form_with model:@customer do |f| %>
+      <%= form_with model:@customerurl, local: true do |f| %>
       <tbody>
         <tr>
           <th>会員ID</th>
