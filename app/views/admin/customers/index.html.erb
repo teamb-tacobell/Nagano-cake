@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <h4>会員一覧</h4>
+    <h4 class="mb-4">会員一覧</h4>
       <table class="table w-100 table-hover text-center">
         <thead class="thead-light">
           <tr>
@@ -14,9 +14,11 @@
           <tbody>
             <td><%= customer.id %></td>
             <td>
+              <div class="link-secondary">
               <%= link_to admin_customer_path(customer.id) do %>
                 <%= customer.last_name %><%= customer.first_name %>
               <% end %>
+              </div>
             </td>
             <td><%= customer.email %></td>
             <% if customer.is_deleted == false %>
@@ -27,5 +29,6 @@
           </tbody>
         <% end %>
       </table>
+      <%= paginate @customers %>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h4>
+    <h4 class="mb-4"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h4>
     <table class="table table-borderless">
       <tbody>
         <tr>
@@ -34,9 +34,9 @@
         <tr>
           <th>会員ステータス</th>
           <% if @customer.is_deleted == false %>
-            <td><p>有効</p></td>
+            <td><strong><p class="text-success">有効</p></strong></td>
           <% elsif %>
-            <td><p>退会</p></td>
+            <td><strong><p class="text-secondary">退会</p></strong></td>
           <% end %>
         </tr>
       </tbody>
