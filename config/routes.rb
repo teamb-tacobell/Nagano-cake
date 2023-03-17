@@ -5,30 +5,36 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  #homes
-  root to: 'homes#top'
-  get '/about' => 'homes#about'
 
-  #items
-  resources :items,only: [:index,:show]
+  #customers側
+  scope module: :public do
 
-  #costomers
-  resources :costomers,only: [:show,:edit,:update]
-  get '/customers/quitcheck' => 'customers#quit_check'
-  patch '/customers/quit' => 'customers#quit'
+    #homes
+    root to: 'homes#top'
+    get '/about' => 'homes#about'
 
-  #cart_items
-  resources :cart_items,only: [:index,:update,:create]
-  delete '/cart_items/:id' => 'cart_items#destroy'
-  delete '/cart_items' => 'cart_items#all_destroy'
+    #items
+    resources :items,only: [:index,:show]
 
-  #orders
-  resources :orders,only: [:new,:index,:update,:create]
-  get '/orders/complete' => 'orders#complete'
-  post '/orders/info' => 'orders#info'
+    #costomers
+    resources :costomers,only: [:show,:edit,:update]
+    get '/customers/quitcheck' => 'customers#quit_check'
+    patch '/customers/quit' => 'customers#quit'
 
-  #deliveries
-  resources :deliveries,only: [:index,:edit,:update,:create,:destroy]
+    #cart_items
+    resources :cart_items,only: [:index,:update,:create]
+    delete '/cart_items/:id' => 'cart_items#destroy'
+    delete '/cart_items' => 'cart_items#all_destroy'
+
+    #orders
+    resources :orders,only: [:new,:index,:update,:create]
+    get '/orders/complete' => 'orders#complete'
+    post '/orders/info' => 'orders#info'
+
+    #deliveries
+    resources :deliveries,only: [:index,:edit,:update,:create,:destroy]
+
+  end
 
   #admins側
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
@@ -38,7 +44,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     #homes
-    get '/admin' => 'homes#top'
+    root to: 'homes#top'
 
     #items
     resources :items,only: [:new,:index,:edit,:show,:update,:create]
