@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     resources :customers,only: [:index,:edit,:show,:update]
 
     #orders
-    resources :orders,only: [:show,:update]
+    resources :orders,only: [:index,:show,:update]
 
     #order_details
     resources :order_details,only: [:update]
