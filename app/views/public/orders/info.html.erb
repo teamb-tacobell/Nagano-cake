@@ -18,7 +18,8 @@
     </div>
     <div class="row">
       <h4>お届け先</h4>
-      〒<%= @info_order.postcode + ' ' + @info_order.residence %>
+      〒<%= @info_order.postcode + ' ' + @info_order.residence %></br>
+        <%= @info_order.name %>
     </div>
     <%= f.submit "注文を確定する", class: "btn btn-primary" %>
   <% end %>
