@@ -18,7 +18,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def quit_check
-    
+    @customer = Customer.find_by(id: params[:id])
   end
   
   def quit

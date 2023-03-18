@@ -40,4 +40,7 @@
     </div>
     <%= f.submit '編集内容を保存', class: "btn btn-success" %>
   <% end %>
+  <%= link_to customers_quitcheck_path(@customer), class: 'ml-3' do %>
+    <button class="btn btn-danger" type="submit">退会する</button>
+  <% end %>
 </div>
