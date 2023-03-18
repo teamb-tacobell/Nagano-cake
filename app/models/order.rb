@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
+  has_many :order_items
   has_many :order_details,  dependent: :destroy
 
   enum cash: { credit_card:0, transfer:1 }
