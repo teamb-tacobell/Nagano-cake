@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>注文情報確認</h2>
+  <%= form_with model: @info_order do |f| %>
+    <table class ="table table-bordered">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="row">
+      <h4>支払方法</h4>
+      <%= @info_order.cash_i18n %>
+    </div>
+    <div class="row">
+      <h4>お届け先</h4>
+      〒<%= @info_order.postcode + ' ' + @info_order.residence %>
+    </div>
+    <%= f.submit "注文を確定する", class: "btn btn-primary" %>
+  <% end %>
