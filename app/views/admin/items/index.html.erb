@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mt-5 md-5" >
     <div class="row">
-        <h2>商品一覧</h2>
+        <h4 class="mb-4">商品一覧</h4>
         <%= link_to "新規投稿", new_admin_item_path %>
-         <table class="table">
+         <table class="table w-100 text-center">
              <thead>
                  <tr>
                      <th>商品ID</th>
@@ -33,6 +33,7 @@
                  </tr>
                  <% end %>
              </tbody>
+             <%= paginate @items %>
          </table>
     </div>
 </div>
