@@ -1,13 +1,5 @@
 <div class="container mt-5 mb-5">
-  <!--バリデーションによるエラーメッセージ-->
-    <% if @customer.errors.any? %>
-      <%= @customer.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+  <%= render "error", customer: @customer %>
   <%= form_with model: @customer, url:admin_customer_path, method: :patch do |f| %>
   <div class="row">
     <h4 class="mb-4">会員情報編集</h4>
@@ -38,7 +30,7 @@
         </tr>
         <tr>
           <th style="width:20%">住所</th>
-          <td><%= f.text_field :residence %></td>
+          <td><%= f.text_area :residence, size: "45x2" %></td>
         </tr>
         <tr>
           <th style="width:20%">電話番号</th>

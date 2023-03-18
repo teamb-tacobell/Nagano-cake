@@ -1,41 +1,63 @@
 <div class="container mt-5 mb-5">
+  <div class="text-center"><h5><strong><%= flash[:notice] %></strong></h5></div>
   <div class="row">
     <h4 class="mb-4">登録情報</h4>
-    <table class="table">
+    <div class="ml-3">
+    <%= link_to edit_customer_path(@customer.id), class: 'text-light' do %>
+        <button class="btn btn-success" type="submit">編集する</button>
+    <% end %>
+    </div>
+    <table class="table table-bordered">
       <tbody>
         <tr>
-          <th>氏名</th>
+          <th class="table-secondary">氏名</th>
           <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
         </tr>
         <tr>
-          <th>カナ</th>
+          <th class="table-secondary">カナ</th>
           <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
         </tr>
         <tr>
-          <th>郵便番号</th>
+          <th class="table-secondary">郵便番号</th>
           <td><%= @customer.postcode %></td>
         </tr>
         <tr>
-          <th>住所</th>
+          <th class="table-secondary">住所</th>
           <td><%= @customer.residence %></td>
         </tr>
         <tr>
-          <th>電話番号</th>
+          <th class="table-secondary">電話番号</th>
           <td><%= @customer.phone_number %></td>
         </tr>
         <tr>
-          <th>メールアドレス</th>
+          <th class="table-secondary">メールアドレス</th>
           <td><%= @customer.email %></td>
         </tr>
       </tbody>
     </table>
-    <div class="d-grid gap-2 d-md-block">
-      <%= link_to edit_admin_customer_path(@customer.id), class: 'text-light' do %>
-        <button class="btn btn-success" type="submit">編集する</button>
-      <% end %>
-      <%= link_to orders_path, class: 'text-light' do %>
-        <button class="btn btn-primary" type="submit">注文履歴一覧を見る</button>
-      <% end %>
-    </div>
+    <table class="table-borderless">
+      <tbody>
+        <tr>
+          <th>
+            <h4>配送先</h4>
+          </th>
+          <td>
+              <%= link_to deliveries_path(@customer.id), class: 'ml-3' do %>
+                  <button class="btn btn-primary" type="submit">一覧を見る</button>
+              <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <h4>注文履歴</h4>
+          </th>
+          <td>
+              <%= link_to orders_path(@customer.id), class: 'ml-3' do %>
+                  <button class="btn btn-primary" type="submit">一覧を見る</button>
+              <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
