@@ -16,3 +16,26 @@ ja:
               wait_make: "製作待ち"
               now_make: "製作中"
               complete_make: "製作完了"
+
+ja:
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              blank: "メールアドレスを入力してください"
+            last_name:
+              blank: "氏名（姓）を入力してください"
+            first_name:
+              blank: "氏名（名）を入力してください"
+            last_name_kana:
+              blank: "フリガナ（姓）を入力してください"
+            first_name_kana:
+              blank: "フリガナ（姓）を入力してください"
+            postcode:
+              blank: "郵便番号を入力してください"
+            residence:
+              blank: "住所を入力してください"
+            phone_number:
+              blank: "電話番号を入力してください"
