@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :items,only: [:index,:show]
 
     #costomers
-    resources :costomers,only: [:show,:edit,:update]
+    resources :customers,only: [:show,:edit,:update]
     get '/customers/quitcheck' => 'customers#quit_check'
     patch '/customers/quit' => 'customers#quit'
 
