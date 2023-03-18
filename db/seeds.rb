@@ -15,9 +15,15 @@ Customer.create!(
    password: '000000'
 )
 
-#Genre.create!(
-#   name: 'パン'
-#)
+Genre.create!(
+   name: 'ラーメン'
+)
+
+Item.create!(
+   name: '醤油ラーメン'
+)
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
