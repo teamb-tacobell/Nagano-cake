@@ -1,5 +1,5 @@
-<div class="p-4">
-  <%= link_to image_tag('head_logo.png'), root_path, class: "pl-3" %>
+<div class="text-center p-4">
+  <%= link_to image_tag('head_logo.png'), root_path %>
 </div>
 <nav class="navbar navbar-expand-lg bg-danger">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -34,13 +34,13 @@
           <% end %>
         </li>
         <li class="nav-link px-2">
-          <%= link_to admin_genres_path, method: :delete, class: "text-decoration-none text-light h5" do %>
-            <i class="fas fa-tags"></i> ジャンル名
+          <%= link_to admin_genres_path, class: "text-decoration-none text-light h5" do %>
+            <i class="fas fa-tags"></i> 登録ジャンル一覧
           <% end %>
         </li>
         <li class="nav-link px-2">
           <%= link_to destroy_admin_session_path, method: :delete, class: "text-decoration-none text-light h5" do %>
-            <i class="fas fa-sign-out-alt"></i> 管理者ログアウト
+            <i class="fas fa-sign-out-alt"></i> ログアウト
           <% end %>
         </li>
 
