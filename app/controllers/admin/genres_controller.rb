@@ -2,12 +2,14 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre=Genre.new
-    @genres=Genre.all
+    @genres=Genre.page(params[:page])
+    # ページネーションの記述。元は、Genre.all
   end
 
   def create
     @genre=Genre.new(genre_params)
     if @genre.save
+     flash[:notice]="新しいジャンルを追加しました"
      redirect_to admin_genres_path
     else
      @genres=Genre.all
@@ -22,6 +24,7 @@ class Admin::GenresController < ApplicationController
   def update
     @genre=Genre.find(params[:id])
     if @genre.update(genre_params)
+      flash[:notice]="ジャンルを変更しました"
       redirect_to admin_genres_path
     else
       render 'edit'
