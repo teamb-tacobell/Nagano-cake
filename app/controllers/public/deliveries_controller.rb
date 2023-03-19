@@ -2,12 +2,13 @@ class Public::DeliveriesController < ApplicationController
 
   def index
     @delivery=Delivery.new
-    @deliveries=Delivery.all
+    @deliveries=current_customer.deliveries.page(params[:page])
   end
 
   def create
-    @delivery=Delivery.new(delivery_params)
+    @delivery=current_customer.deliveries.new(delivery_params)
     if @delivery.save
+      flash[:notice]="登録完了しました"
       redirect_to deliveries_path
     else
       @deliveries=Delivery.all
@@ -22,6 +23,7 @@ class Public::DeliveriesController < ApplicationController
   def update
     @delivery=Delivery.find(params[:id])
     if @delivery.update(delivery_params)
+      flash[:notice]="登録情報変更しました"
       redirect_to deliveries_path
     else
       render "edit"
@@ -38,7 +40,7 @@ class Public::DeliveriesController < ApplicationController
   private
 
   def delivery_params
-    params.require(:delivery).permit(:postcode, :residence, :name, :customer_id)
+    params.require(:delivery).permit(:postcode, :residence, :name)
   end
 
 end
