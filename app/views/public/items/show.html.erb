@@ -1,0 +1,15 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3 offset-md-1'>
+            <%= image_tag @item.image,size: "300x300" %>
+        </div>
+        <div class='col-md-7 offset-md-1'>
+            <label>商品名</label> <%= @item.name %><br>
+
+            <label>商品説明</label> <%= @item.explanation %><br>
+
+　          <p>¥<%= @item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)</p>
+
+        </div>
+    </div>
+</div>

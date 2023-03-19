@@ -1,7 +1,9 @@
-<div class='container mt-5 md-5'>
+<div class='container'>
   <div class='row'>
-   <div class="col-md-6 px-5 px-sm-0 mx-auto">
+    <div class="col-md-10 mt-5 mx-auto">
        <h4>商品新規登録</h4>
+    </div>
+    <div class="col-md-10 mt-4 mx-auto">
       <%= render 'admin/genres/error',obj: @item %>
       <%= form_with model: @item,url: admin_items_path, local: true  do |f| %>
         <div class='form-group'>
@@ -35,6 +37,6 @@
         <%= f.submit "新規登録", class:'btn btn-lg btn-success' %>
 　　　　</div>
       <% end %>
-   </div>
+    </div>
   </div>
 </div>
