@@ -13,8 +13,6 @@ class Public::ItemsController < ApplicationController
       @cart_item = CartItem
     end
 
-    private
-
     def item_params
       params.require(:items).permit(:image, :name, :explanation, :genre_id, :tax_excluded_price, :is_sold)
     end
