@@ -1,17 +1,16 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "登録情報の編集が成功しました"
-      redirect_to customer_path(@customer.id)
+      redirect_to customer_path
     else
       render :edit
     end

@@ -17,15 +17,15 @@ Rails.application.routes.draw do
     resources :items,only: [:index,:show]
 
     #customers
-    resources :customers,only: [:edit,:update]
-    get '/customers/quitcheck' => 'customers#quit_check'
-    patch '/customers/quit' => 'customers#quit'
-    get '/customers/:id' => 'customers#show'
+    resource :customer,only: [:edit, :show, :update]
+    get '/customer/quitcheck' => 'customers#quit_check'
+    patch '/customer/quit' => 'customers#quit'
+    # get '/customers/:id' => 'customers#show'
 
     #cart_items
     resources :cart_items,only: [:index,:update,:create]
-    delete '/cart_items/:id' => 'cart_items#destroy',as:'cart_item_destroy'
-    delete '/cart_items' => 'cart_items#all_destroy',as:'cart_items_destroy'
+    delete '/cart_items/:id' => 'cart_items#destroy'
+    delete '/cart_items' => 'cart_items#all_destroy'
 
     #orders
     resources :orders,only: [:new,:index,:show,:create]
