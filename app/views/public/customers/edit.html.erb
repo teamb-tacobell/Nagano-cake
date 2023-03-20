@@ -38,9 +38,11 @@
       </tbody>
     </table>
     </div>
-    <%= f.submit '編集内容を保存', class: "btn btn-success" %>
-  <% end %>
-  <%= link_to customers_quitcheck_path class: 'ml-3' do %>
-    <button class="btn btn-danger" type="submit">退会する</button>
-  <% end %>
+    <div class="justify-content-center">
+      <%= f.submit '編集内容を保存', class: "btn btn-success" %>
+      <%= link_to customer_quitcheck_path do %>
+        <button class="btn btn-danger" type="submit">退会する</button>
+      <% end %>
+    </div>
+    <% end %>
 </div>
