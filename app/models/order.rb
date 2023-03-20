@@ -7,7 +7,11 @@ class Order < ApplicationRecord
   enum cash: { credit_card:0, transfer:1 }
   enum order_status: { waiting:0, confirm:1, making:2, preparation:3, sent:4 }
 
-  def sum_of_order_price
-    total_price + postage
+  def sum_of_items_price
+    add_tax_tax_excluded_price * quantity
   end
+
+#  def sum_of_order_price
+#    sum_of_items_price + postage
+#  end
 end

@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -15,10 +16,9 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
+    @customer = current_customer
     @order.save
-    @cart_items = current_customer.cart_items
-    redirect_to complete_path
+    redirect_to complete_orders_path
   end
 
   def info
@@ -33,6 +33,9 @@ class Public::OrdersController < ApplicationController
       @order.residence = @deliveries.residence
       @order.name = @deliveries.name
     end
+
+    @cart_items = CartItem.all
+    @sum_of_items_price = @cart_items.inject(0) { |sum, item| sum + item.quantity }
   end
 
   def complete
