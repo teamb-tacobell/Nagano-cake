@@ -17,11 +17,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def quit_check
-    @customer = Customer.find_by(id: params[:id])
   end
 
   def quit
-
+    current_customer.update(status: 'quit')
+    reset_session
+    redirect_to root_path, notice: '退会しました。ご利用ありがとうございました。'
   end
 
   private

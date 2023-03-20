@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     resource :customer,only: [:edit, :show, :update]
     get '/customer/quitcheck' => 'customers#quit_check'
     patch '/customer/quit' => 'customers#quit'
-    # get '/customers/:id' => 'customers#show'
 
     #cart_items
     resources :cart_items,only: [:index,:update,:create]
