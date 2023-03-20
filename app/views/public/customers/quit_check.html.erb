@@ -1,5 +1,24 @@
-<div class="container text-center">
+<div class="container">
   <div class="row">
-    <h4><strong>本当に退会しますか？</strong></h4>
+    <div class="col-12 mt-5 mb-5">
+      <div class="justify-content-center text-center">
+        <div class="mb-4">
+        <h4><strong>本当に退会しますか？</strong></h4>
+        </div>
+        <div class="mb-5">
+        <h5>
+          退会すると、会員登録情報や<br>
+          これまでの購入履歴が閲覧できなくなります。<br>
+          退会する場合は、「退会する」をクリックしてください。
+        </h5>
+        </div>
+        <%= link_to customer_path, class: 'ml-3' do %>
+          <button class="btn btn-primary" type="submit">退会しない</button>
+        <% end %>
+        <%= link_to customer_path, class: 'ml-3' do %>
+          <button class="btn btn-danger" type="submit">退会する</button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
