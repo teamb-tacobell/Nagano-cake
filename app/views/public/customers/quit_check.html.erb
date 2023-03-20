@@ -15,7 +15,7 @@
         <%= link_to customer_path, class: 'ml-3' do %>
           <button class="btn btn-primary" type="submit">退会しない</button>
         <% end %>
-        <%= link_to customer_path, class: 'ml-3' do %>
+        <%= link_to customer_quit_path, method: :patch, class: 'ml-3' do %>
           <button class="btn btn-danger" type="submit">退会する</button>
         <% end %>
       </div>
