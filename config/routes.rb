@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     resources :items,only: [:new,:index,:edit,:show,:update,:create]
 
     #genres
-    resources :genres,only: [:index,:edit,:update,:create]
+    resources :genres,only: [:index,:edit,:update,:create, :show]
 
     #customers
     resources :customers,only: [:index,:edit,:show,:update]
