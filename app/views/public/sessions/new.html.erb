@@ -1,23 +1,25 @@
-<div class="container">
-  <h2>ログイン</h2>
+<div class="container pl-5">
+
+  <p></p></br>
+  <h2><strong>会員ログイン</strong></h2>
+  <p></p>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+    </div><p></p>
 
     <div class="field">
       <%= f.label :パスワード %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-    <p></p>
+    </div><p></p>
+
     <div class="actions">
-      <%= f.submit "ログイン" %>
-    </div>
+      <%= f.submit "ログイン", class: "btn btn-success" %>
+    </div><p></p>
   <% end %>
 
-  <p></p>
-会員登録がお済みでない方</br>
+  会員登録がお済みでない方</br>
   <%= render "public/shared/links" %>から新規登録をしてください。
-</div>
+  <p></p>

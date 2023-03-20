@@ -1,0 +1,29 @@
+<div class="conteiner">
+  <div class="row mt-5 mb-5 ml-2">
+     <div class="col-md-3 ml-5">
+　　   <%= render 'public/homes/genrebar', genre: @genre %>
+     </div>
+     <div class="col-md-8 mt-4 mb-5">
+     <h3>
+       <strong>商品一覧</strong>
+       (全<%= @items_all.count %>件)
+     </h3>
+     <div class="container">
+       <div class="row center">
+         <% @items.each do |item| %>
+           <div class="col-md-3 mt-4">
+             <div class="item-box">
+               <%= link_to item_path(item) do %>
+                 <%= image_tag item.image, size: '180x140' %>
+               <% end %>
+               <p><%= item.name %></p>
+               <p>¥<%= item.tax_excluded_price.to_s(:delimited) %></p>
+             </div>
+           </div>
+         <% end %>
+         <%= paginate @items %>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>

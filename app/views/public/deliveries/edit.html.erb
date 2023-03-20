@@ -1,10 +1,10 @@
 <div class="container">
   <h2>配送先編集</h2>
   <div class="row">
-
-    <table>
-      <tbody>
-        <%= form_with model: @delivery,url:delivery_path,method: :patch do |f| %>
+    <%= render "error",obj: @delivery %>
+    <%= form_with model: @delivery,url:delivery_path,method: :patch do |f| %>
+      <table>
+        <tbody>
           <tr>
             <td>郵便番号（ハイフンなし）</td>
             <td><%= f.text_field:postcode %></td>
@@ -21,8 +21,8 @@
             <td></td>
             <td><%= f.submit "変更内容を保存",class:"btn btn-success" %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>

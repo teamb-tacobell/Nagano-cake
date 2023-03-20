@@ -1,5 +1,6 @@
 <div class="container">
   <h2>配送先登録/一覧</h2>
+  <%= flash[:notice] %>
   <div class="row">
     <%= render "error",obj: @delivery %>
     <table>
@@ -51,6 +52,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @deliveries %>
     </div>
   </div>
 </div>

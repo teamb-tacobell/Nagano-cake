@@ -1,0 +1,27 @@
+<div class='conteiner'>
+  <div class='row mt-5 mb-5 ml-2'>
+    <div class='col-md-3 ml-5'>
+      <%= render 'public/homes/genrebar', genre: @genre %>
+    </div>
+    <div class='col-md-8 mt-4 mb-5'>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <%= image_tag @item.image,size: "300x250" %>
+          </div>
+          <div class="col-md-5 ml-3">
+            <h3 class="font-weight-bold mb-3"><%= @item.name %></h3>
+
+            <p><%= @item.explanation %></p>
+
+　          <h5 class="font-weight-bold">¥<%= @item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)</h5>
+
+          </div>
+        </div>
+      </div>
+
+
+
+        </div>
+    </div>
+</div>

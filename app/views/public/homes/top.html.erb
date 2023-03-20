@@ -1,1 +1,45 @@
-<h1>顧客側top</h1>
+<div class="conteiner">
+  <div class="row mt-5 mb-5 ml-3">
+    <div class="col-md-3 ml-5">
+      <%= render 'genrebar', genre:@genre%>
+    </div>
+
+    <div class="col-md-8 mb-5">
+      <div style="position: relative; display:inline-block;">
+        <%= image_tag 'top-cake.png', class: "ml-5" %>
+        <div style="position: absolute; top: 75px; left: 50px; max-width: 100%; max-height: 100%; padding: 30px; text-align: left; color:#223a70;">
+          <p>
+            ようこそ、ながのCAKEへ！<br><p></p>
+            このサイトはケーキ販売のECサイトになります。<br><p></p>
+            会員ではない方も商品の閲覧はできますが、<br><p></p>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
+      </div><p></p></br>
+
+      <h3 class="border-top border-bottom text-center p-2">
+        <strong>新着商品</strong>
+        <%= image_tag 'new.gif' %>
+      </h3>
+      <div class="conteiner">
+        <div class="row mb-3">
+          <div class="col-11">
+            <div class="d-flex">
+              <% @items.first(4).each do |item| %>
+                <div class="col-3 text-center">
+                  <!--controller追記後に有効-->
+                  <!--%= image_tag item.get_image(100,100) %><br>-->
+                  <%= link_to item.name, item_path(item.id),  class: "text-decoration-none text-dark font-weight-bold" %><br>
+                  ¥ <%= item.tax_excluded_price.to_s(:delimited) %>
+                </div>
+              <% end %>
+            </div><br>
+            <div class="text-right">
+            <%= link_to "全ての商品を見る>", items_path, class: "text-decoration-none text-dark font-weight-bold" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
