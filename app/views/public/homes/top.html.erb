@@ -27,13 +27,14 @@
             <div class="d-flex">
               <% @items.first(4).each do |item| %>
                 <div class="col-3 text-center">
-                  <!--controller追記後に有効-->
-                  <!--%= image_tag item.get_image(100,100) %><br>-->
-                  <%= link_to item.name, item_path(item.id),  class: "text-decoration-none text-dark font-weight-bold" %><br>
-                  ¥ <%= item.tax_excluded_price.to_s(:delimited) %>
+                  <%= link_to item_path(item.id), class: "text-dark font-weight-bold" do %>
+                    <%= image_tag item.image, size: '100x100' %></br>
+                    <%= item.name %></br>
+                    ¥ <%= item.tax_excluded_price.to_s(:delimited) %>
+                  <% end %>
                 </div>
               <% end %>
-            </div><br>
+            </div><p></p><br>
             <div class="text-right">
             <%= link_to "全ての商品を見る>", items_path, class: "text-decoration-none text-dark font-weight-bold" %>
             </div>

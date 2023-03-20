@@ -1,6 +1,6 @@
 <div class="container">
   <h2>注文情報確認</h2>
-  <%= form_with model: @info_order do |f| %>
+  <%= form_with model: @order do |f| %>
     <table class ="table table-bordered">
       <thead>
         <tr>
@@ -10,16 +10,37 @@
           <th>小計</th>
         </tr>
       </thead>
+      <tbody>
+
+        <% @cart_items.each do |cart_item| %>
+          <td>
+            <%= image_tag cart_item.item.get_image, size: '40x40' %>
+            <%= cart_item.item.name %>
+          </td>
+
+          <td>
+            <%= cart_item.item.tax_excluded_price.to_s(:delimited) %>
+          </td>
+
+          <td>
+            <%= cart_item.quantity%>
+          </td>
+
+          <td>
+          </td>
+        <% end %>
+
+      </tbody>
     </table>
 
     <div class="row">
       <h4>支払方法</h4>
-      <%= @info_order.cash_i18n %>
+      <%= @order.cash_i18n %>
     </div>
     <div class="row">
       <h4>お届け先</h4>
-      〒<%= @info_order.postcode + ' ' + @info_order.residence %></br>
-        <%= @info_order.name %>
+      〒<%= @order.postcode + ' ' + @order.residence %></br>
+        <%= @order.name %>
     </div>
     <%= f.submit "注文を確定する", class: "btn btn-primary" %>
   <% end %>
