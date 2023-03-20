@@ -1,0 +1,28 @@
+<div class="conteiner">
+  <div class="row mt-5 mb-5 ml-3">
+    <div class="col-md-3 ml-5">
+      <%= render 'public/homes/genrebar', genre: @genres %>
+    </div>
+
+    <div class="col-md-8 mb-5">
+      <h4 class="border-top border-bottom text-center p-2"><%= @genre.name %>一覧</h4>
+      <div class="conteiner">
+        <div class="row mb-3">
+          <div class="col-11">
+            <div class="d-flex">
+              <% @genre.items.each do |item| %>
+                <div class="col-3 text-center">
+                  <%= link_to item_path(item), class: "text-dark font-weight-bold" do %>
+                    <%= image_tag item.image, size: '100x100' %><br>
+                    <%= item.name %><br>
+                    ¥ <%= item.add_tax_tax_excluded_price.to_s(:delimited) %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

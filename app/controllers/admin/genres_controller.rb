@@ -31,7 +31,12 @@ class Admin::GenresController < ApplicationController
     end
   end
 
-
+  
+  def show
+    @genres = Genre.all
+    @genre = Genre.find(params[:id])
+  end
+  
   private
 
   def genre_params
