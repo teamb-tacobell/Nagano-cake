@@ -14,14 +14,21 @@
 
             <p><%= @item.explanation %></p>
 
-　          <h5 class="font-weight-bold">¥<%= @item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)</h5>
+　          <h5 class="font-weight-bold mb-3">¥<%= @item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)</h5>
 
+            <% if @item.is_sold == true %>
+              <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+                <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], include_blank: "個数選択" , class:"btn btn-outline-secondary" %>
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.submit "カートに入れる", class: "actions btn btn-sm btn-success px-3 ml-3" %>
+              <% end %>
+
+            <% else %>
+              <p>販売停止中</p>
+            <% end %>
           </div>
         </div>
       </div>
-
-
-
-        </div>
     </div>
+  </div>
 </div>
