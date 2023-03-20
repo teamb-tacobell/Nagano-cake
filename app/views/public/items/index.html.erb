@@ -16,12 +16,14 @@
                <%= link_to item_path(item) do %>
                  <%= image_tag item.image, size: '180x140' %>
                <% end %>
-               <p><%= item.name %></p>
+               <p class="mt-2"><%= item.name %></p>
                <p>¥<%= item.tax_excluded_price.to_s(:delimited) %></p>
              </div>
            </div>
          <% end %>
-         <%= paginate @items %>
+         <div class="pagination justify-content-center">
+           <%= paginate @items %>
+         </div>
        </div>
      </div>
     </div>
