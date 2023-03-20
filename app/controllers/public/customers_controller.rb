@@ -17,12 +17,15 @@ class Public::CustomersController < ApplicationController
   end
 
   def quit_check
+    @customer = current_customer
   end
 
   def quit
-    current_customer.update(status: 'quit')
+    @customer = current_customer
+    @customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: '退会しました。ご利用ありがとうございました。'
+    flash[:notice] = "退会処理が完了しました。ご利用ありがとうございました。"
+    redirect_to root_path
   end
 
   private

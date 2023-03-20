@@ -25,7 +25,13 @@ ja:
   devise:
     sessions:
       customer:
-        signed_in: "ログイン中です"
+        signed_in: "ログインしました。"
+        signed_up: "会員登録が完了しました。"
+        signed_out: "ログアウトしました。"
+      admin:
+        signed_in: "管理者ページにログインしました。"
+        signed_out: "管理者ページをログアウトしました。"
+        
   enums:
       order:
           cash:

@@ -18,7 +18,4 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true
   validates :email, presence: true
   
-  def active_for_authentication?
-    super && (status == 'normal')
-  end
 end
