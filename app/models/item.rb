@@ -6,7 +6,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :explanation, presence: true
   validates :tax_excluded_price, presence: true
-  validates :is_sold, presence: true
 
   def add_tax_tax_excluded_price
     (self.tax_excluded_price * 1.10).round
