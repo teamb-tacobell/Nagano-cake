@@ -2,11 +2,11 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
   end
-  
+
   def edit
     @customer = Customer.find(params[:id])
   end
-  
+
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
@@ -16,15 +16,15 @@ class Public::CustomersController < ApplicationController
       render :edit
     end
   end
-  
+
   def quit_check
     @customer = Customer.find_by(id: params[:id])
   end
-  
+
   def quit
-  
+
   end
-  
+
   private
 
   def customer_params
