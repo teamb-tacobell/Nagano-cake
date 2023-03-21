@@ -29,9 +29,9 @@ ja:
         signed_up: "会員登録が完了しました。"
         signed_out: "ログアウトしました。"
       admin:
-        signed_in: "管理者ページにログインしました。"
+        signed_in: "管理者ページにログインしています。"
         signed_out: "管理者ページをログアウトしました。"
-        
+
   enums:
       order:
           cash:
