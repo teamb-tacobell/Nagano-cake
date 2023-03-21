@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'searches/search'
+  end
   #customers側
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -33,6 +36,9 @@ Rails.application.routes.draw do
 
     #deliveries
     resources :deliveries,only: [:index,:edit,:update,:create,:destroy]
+    
+    #searchess
+    get 'search' => 'searches#search'
 
   end
 
