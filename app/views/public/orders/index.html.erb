@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col-lg-10 col-sm-12 mx-auto">
       <div class="row mb-3">
+      <% if current_customer.orders.present? %>
         <div class="col-12">
           <h4 class="text-center">　注文履歴一覧　</h4>
         </div>
       </div>
-　　　<div class="row">
+      <div class="row">
       <table class ="table table-bordered">
         <thead>
           <tr class="text-center">
@@ -34,12 +35,15 @@
               <% end %>
             </td>
             <td><%= order.total_price %></td>
-            <td class="text-center align-middle"><%= order.order_status %></td>
+            <td class="text-center align-middle"><%= order.order_status_i18n %></td>
             <td class="text-center align-middle"><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-primary" %></td>
             <% end %>
           </tr>
         </tbody>
       </table>
+      <% else %>
+        <h3 class="m-auto text-center">注文履歴はありません。</h3>
+      <% end %>
     </div>
   </div>
 </div>
