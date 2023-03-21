@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     (self.tax_excluded_price * 1.10).round
   end
 
-  def self.looks(search, word)
-    Item.where('name LIKE?', "%#{search}%")
+  def self.search(keyword)
+    where(["name like?", "%#{keyword}%"])
   end
 end
