@@ -1,5 +1,6 @@
 <div class="container">
-  <h2>注文情報確認</h2>
+  <% if current_customer.cart_items.present? %>
+  <h2 class="text-center">注文情報確認</h2>
   <%= form_with model: @order, url: orders_path do |f| %>
     <table class ="table table-bordered">
       <thead>
@@ -13,19 +14,21 @@
       <tbody>
         <% @cart_items.each do |cart_item| %>
           <td>
-            <%= image_tag cart_item.item.get_image, size: '40x40' %>
+            <%= image_tag cart_item.item.image, size: '40x40' %>
             <%= cart_item.item.name %>
           </td>
 
           <td>
-            <%= cart_item.item.tax_excluded_price.to_s(:delimited) %>
+            <!--商品税込単価-->
+            <%= (cart_item.item.add_tax_excluded_price).to_s(:delimited) %>
           </td>
 
           <td>
-            <%= cart_item.quantity%>
+            <%= cart_item.quantity %>
           </td>
 
           <td>
+            <%= sum_price.to_s(:delimited) %>
           </td>
         <% end %>
       </tbody>
@@ -41,13 +44,12 @@
 
         <th>商品合計</th>
         <td>
-          <%= @sum_of_items_price %>
+          <%= @total_price.floor.to_s(:delimited) %>
         </td>
 
         <th>請求金額</th>
         <td>
-          <%= (@sum_of_items_price + @order.postage).to_s(:delimited) %>
-          <%= f.hidden_field :total_price, :value => @sum_of_items_price + @order.postage %>
+          <%= f.hidden_field :total_price, :value => @total_price + @order.postage %>
         </td>
       </tr>
     </table>
@@ -68,3 +70,9 @@
     </div>
     <%= f.submit "注文を確定する", class: "btn btn-primary" %>
   <% end %>
+  <% else %>
+    <p></p></br>
+    <h2 class="text-center">現在カートに商品はありません。</h2>
+    <p></p></br>
+  <% end %>
+</div>

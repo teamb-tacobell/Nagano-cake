@@ -3,6 +3,7 @@
   <table class="table table-hover">
     <thead>
       <tr class="text-center">
+        <th>注文ID</th>
         <th>購入日時</th>
         <th>購入者</th>
         <th>注文個数</th>
@@ -12,10 +13,15 @@
     <tbody class="small">
     <% @orders.each do |order| %>
       <tr class="text-center">
-        <td><%= order.created_at %></td>
+        <td><%= order.id %></td>
+        <td>
+          <%= link_to admin_order_path(order.id), method: :get do %>
+            <%= order.created_at %>
+          <% end %>
+        </td>
         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-        <td><%= order.order_items.quantity %></td>
-        <td><%= order.order_status %></td>
+        <td><!--%= order.order_items.sum(:quantity) %--></td>
+        <td><%= order.order_status_i18n %></td>
       </tr>
     <% end %>
     </tbody>
