@@ -1,8 +1,16 @@
 <div class="container mt-5 md-5" >
     <div class="row">
-        <h4 class="mb-4">商品一覧</h4>
-        <%= link_to "新規投稿", new_admin_item_path %>
-         <table class="table w-100 text-center">
+      <div class="col-2 mb-3">
+        <h2 class="bg-light text-center">商品一覧</h2>
+      </div>
+      <div class="col mb-3 text-right">
+    　  <%= link_to new_admin_item_path, class: "text-decoration-none h3" do %>
+    　   <i class="fas fa-plus-circle fa-lg" style="color: #d0d1d2;"></i>
+    　  <% end %>
+    　</div>
+    　</div>
+    <div class="row">
+         <table class="table w-100 mx-auto text-center">
              <thead>
                  <tr>
                      <th>商品ID</th>
