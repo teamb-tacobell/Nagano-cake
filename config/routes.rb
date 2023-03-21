@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :items,only: [:index,:show]
 
     #customers
-    resource :customer,only: [:edit, :show, :update]
+    resource :customer,only: [:edit,:show,:update]
     get '/customer/quitcheck' => 'customers#quit_check'
     patch '/customer/quit' => 'customers#quit'
 
@@ -27,10 +27,9 @@ Rails.application.routes.draw do
     delete '/cart_items' => 'cart_items#all_destroy',as:'cart_items_destroy'
 
     #orders
-    resources :orders,only: [:new,:index,:create,:show] do
-      post :info, on: :collection
-      get :complete, on: :collection
-    end
+    resources :orders,only: [:new,:index,:show,:create]
+    get '/orders/complete' => 'orders#complete'
+    post '/orders/info' => 'orders#info'
 
     #deliveries
     resources :deliveries,only: [:index,:edit,:update,:create,:destroy]
@@ -51,7 +50,7 @@ Rails.application.routes.draw do
     resources :items,only: [:new,:index,:edit,:show,:update,:create]
 
     #genres
-    resources :genres,only: [:index,:edit,:update,:create]
+    resources :genres,only: [:index,:edit,:update,:create, :show]
 
     #customers
     resources :customers,only: [:index,:edit,:show,:update]
