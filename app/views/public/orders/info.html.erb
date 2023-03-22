@@ -20,7 +20,7 @@
 
           <td>
             <!--商品税込単価-->
-            <%= (cart_item.item.add_tax_excluded_price).to_s(:delimited) %>
+            <!--%= (cart_item.item.add_tax_excluded_price).to_s(:delimited) %-->
           </td>
 
           <td>
@@ -28,7 +28,7 @@
           </td>
 
           <td>
-            <%= sum_price.to_s(:delimited) %>
+            <!--%= sum_price.to_s(:delimited) %-->
           </td>
         <% end %>
       </tbody>
@@ -44,12 +44,12 @@
 
         <th>商品合計</th>
         <td>
-          <%= @total_price.floor.to_s(:delimited) %>
+          <!--%= @total_price.floor.to_s(:delimited) %-->
         </td>
 
         <th>請求金額</th>
         <td>
-          <%= f.hidden_field :total_price, :value => @total_price + @order.postage %>
+          <!--%= f.hidden_field :total_price, :value => @total_price + @order.postage %-->
         </td>
       </tr>
     </table>

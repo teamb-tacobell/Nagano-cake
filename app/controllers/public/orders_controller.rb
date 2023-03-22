@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
      @order.name = params[:order]["name"]
     end
     @cart_items = current_customer.cart_items.all
-    @total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
+    #@total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
     @order.postage = 800
   end
 
