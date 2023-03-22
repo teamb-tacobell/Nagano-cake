@@ -5,7 +5,7 @@
     </div>
      <%= render 'admin/genres/error',obj: @item %>
     <div class="col-md-6 mx-auto">
-      <%= form_with model: @item,url: admin_items_path, local: true  do |f| %>
+      <%= form_with model: @item,url: admin_items_path do |f| %>
       <table class="table table-borderless mt-3">
         <tbody>
           <tr>
@@ -50,7 +50,7 @@
       </table>
       <div class="row">
         <div class="mb-5 mx-auto">
-          <%= f.submit "新規登録", class:'btn btn-success' %>
+          <%= f.submit "新規登録", class:'btn btn-lg btn-success' %>
         </div>
       </div>
       <% end %>
