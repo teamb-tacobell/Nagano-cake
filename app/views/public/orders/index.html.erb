@@ -24,17 +24,17 @@
           <% @orders.each do |order| %>
           <tr>
             <td class="text-center align-middle"><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-            <td>
+            <td class="align-middle">
               〒<%= order.postcode %></br>
               <%= order.residence %></br>
               <%= order.name %>
             </td>
             <td>
               <% order.order_items.each do |order_item| %>
-                <%= order_item.item_id.name %>
+                <p class="text-left"><%= order_item.item.name %></p>
               <% end %>
             </td>
-            <td><%= order.total_price %></td>
+            <td class="text-center align-middle"><%= order.total_price.to_s(:delimited) %>円</td>
             <td class="text-center align-middle"><%= order.order_status_i18n %></td>
             <td class="text-center align-middle"><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-primary" %></td>
             <% end %>

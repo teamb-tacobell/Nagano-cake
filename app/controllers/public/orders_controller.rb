@@ -6,23 +6,8 @@ class Public::OrdersController < ApplicationController
     @deliveries = Delivery.all
   end
 
-  def create
-    @customer = current_customer
-    @cart_items = current_customer.cart_items.all
-    @order = current_customer.orders.new(order_params)
-    if @order.save
-      order_item = OrderItem.new
-      order_item.item_id = @cart_item.item_id
-      order_item.order_id = @order.id
-      order_item.quantity = @cart_item.quantity
-      order_item.purchase_price = @cart_item.total_price
-      order_item.save
-      redirect_to complete_orders_path
-      current_customer.cart_items.destroy_all
-    end
-  end
-
   def info
+    @total_item_price = 0
     @order = Order.new(order_params)
     if params[:order][:select_residence] == "0"
       @order.residence = current_customer.residence
@@ -39,8 +24,25 @@ class Public::OrdersController < ApplicationController
      @order.name = params[:order]["name"]
     end
     @cart_items = current_customer.cart_items.all
-    #@total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
-    @order.postage = 800
+  end
+
+  def create
+    @customer = current_customer
+    @cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    @order.save
+
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      @order_item = OrderItem.new
+      @order_item.order_id = @order.id
+      @order_item.item_id = cart_item.item_id
+      @order_item.quantity = cart_item.quantity
+      @order_item.purchase_price = cart_item.item.add_tax_tax_excluded_price
+      @order_item.save
+    end
+      redirect_to complete_orders_path
+      current_customer.cart_items.destroy_all
   end
 
   def complete
@@ -53,6 +55,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
 
   private
