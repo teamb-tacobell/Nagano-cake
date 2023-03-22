@@ -11,7 +11,9 @@
           <th>小計</th>
         </tr>
       </thead>
+
       <tbody>
+        <tr>
         <% @cart_items.each do |cart_item| %>
           <td>
             <%= image_tag cart_item.item.image, size: '40x40' %>
@@ -19,8 +21,8 @@
           </td>
 
           <td>
-            <!--商品税込単価-->
-            <!--%= (cart_item.item.add_tax_excluded_price).to_s(:delimited) %-->
+            <% tax_cluded_price = cart_item.item.add_tax_tax_excluded_price %>
+            <%= tax_cluded_price.to_s(:delimited) %>
           </td>
 
           <td>
@@ -28,13 +30,15 @@
           </td>
 
           <td>
-            <!--%= sum_price.to_s(:delimited) %-->
+            <%= cart_item.item.add_tax_tax_excluded_price.floor * cart_item.quantity %>
           </td>
+          <% @total_item_price += cart_item.item.add_tax_tax_excluded_price.floor * cart_item.quantity %>
         <% end %>
+        </tr>
       </tbody>
     </table>
 
-    <table>
+    <table class="table table-bordered">
       <tr>
         <th>送料</th>
         <td>
@@ -44,12 +48,13 @@
 
         <th>商品合計</th>
         <td>
-          <!--%= @total_price.floor.to_s(:delimited) %-->
+          <%= @total_item_price.to_s(:delimited) %>
         </td>
 
         <th>請求金額</th>
         <td>
-          <!--%= f.hidden_field :total_price, :value => @total_price + @order.postage %-->
+          <%= (@total_item_price + @order.postage).to_s(:delimited) %>
+          <%= f.hidden_field :total_price, :value => @total_item_price + @order.postage %>
         </td>
       </tr>
     </table>
