@@ -2,7 +2,8 @@ class Public::DeliveriesController < ApplicationController
 
   def index
     @delivery=Delivery.new
-    @deliveries=current_customer.deliveries.page(params[:page])
+    # @deliveries=current_customer.deliveries.page(params[:page])
+    @deliveries=current_customer.deliveries
   end
 
   def create
@@ -11,8 +12,8 @@ class Public::DeliveriesController < ApplicationController
       flash[:notice]="登録完了しました"
       redirect_to deliveries_path
     else
-      @deliveries=Delivery.all
-      render 'index'
+      @deliveries=current_customer.deliveries.all
+      render "index"
     end
   end
 

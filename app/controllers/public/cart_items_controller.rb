@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+   before_action :authenticate_customer!
 
   # def new
     # @cart_item=CartItem.new
@@ -14,6 +15,14 @@ class Public::CartItemsController < ApplicationController
       flash[:notice]="数量を選択してください"
       redirect_to item_path(@cart_item.item.id)
     else
+      @cart_items=current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+        if cart_item.item_id==@cart_item.item_id
+          new_quantity=cart_item.quantity+@cart_item.quantity
+          cart_item.update_attribute(:quantity,new_quantity)
+          @cart_item.delete
+        end
+      end
       @cart_item.save
       redirect_to cart_items_path
     end
