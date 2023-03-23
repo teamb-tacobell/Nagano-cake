@@ -2,7 +2,7 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre=Genre.new
-    @genres=Genre.page(params[:page])
+    @genres=Genre.all
     # ページネーションの記述。元は、Genre.all
   end
 
@@ -31,12 +31,12 @@ class Admin::GenresController < ApplicationController
     end
   end
 
-  
+
   def show
     @genres = Genre.all
     @genre = Genre.find(params[:id])
   end
-  
+
   private
 
   def genre_params
