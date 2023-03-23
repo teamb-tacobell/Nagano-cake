@@ -22,6 +22,18 @@ ja:
               blank: "電話番号を入力してください"
             password:
               blank: "パスワードを入力してください"
+        delivery:
+          attributes:
+            postcode:
+              blank: "郵便番号を入力してください"
+            residence:
+              blank: "住所を入力してください"
+            name:
+              blank: "名前を入力してください"
+        genre:
+          attributes:
+            name:
+              blank: "名前を入力してください"
   devise:
     sessions:
       customer:

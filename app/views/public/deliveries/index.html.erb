@@ -1,8 +1,10 @@
-<div class="container">
-  <h2>配送先登録/一覧</h2>
-  <%= flash[:notice] %>
+<%= flash[:notice] %>
+<div class="container my-5">
+  <h3><strong>配送先登録/一覧</strong></h3>
   <div class="row">
     <%= render "error",obj: @delivery %>
+  </div>
+  <div class="row my-4">
     <%= form_with model: @delivery,url:deliveries_path,method: :post do |f| %>
       <table>
         <tbody>
@@ -52,7 +54,7 @@
           <% end %>
         </tbody>
       </table>
-      
+
     </div>
   </div>
 </div>
