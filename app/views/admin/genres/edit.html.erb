@@ -1,7 +1,6 @@
 <div class="container my-5">
-  <h3><strong>ジャンル編集</strong></h3>
-
   <%= render 'error',obj: @genre %>
+  <h3><strong>ジャンル編集</strong></h3>
 
   <%= form_with model: @genre,url:admin_genre_path,method: :patch do |f| %>
   <table class="mt-4">
