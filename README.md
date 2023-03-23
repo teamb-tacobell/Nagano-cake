@@ -43,7 +43,7 @@ $ cd Nagano-cake
 $ rails db:migrate
 ~~~
 ~~~
-rails db:seed
+$ rails db:seed
 ~~~
 ~~~
 $ yarn install

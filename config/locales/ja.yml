@@ -31,6 +31,9 @@ ja:
       admin:
         signed_in: "管理者ページにログインしています。"
         signed_out: "管理者ページをログアウトしました。"
+    registrations:
+      customer:
+        signed_up: "会員登録が完了しました。"
 
   enums:
       order:
