@@ -1,7 +1,8 @@
-<%= render 'admin/genres/error',obj: @item %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-5 mx-auto">
+      <%= render 'admin/genres/error',obj: @item %>
       <h3>商品新規登録</h3>
     </div>
 
@@ -38,9 +39,9 @@
             <td><%= f.label "販売ステータス" %></td>
             <td>
               <%= f.radio_button :is_sold, true %>
-              <%= f.label :is_sold, '販売中' %>
+                <%= f.label :is_sold, '販売中' %>
               <%= f.radio_button :is_sold, false %>
-              <%= f.label :is_sold, '販売停止中' %>
+                <%= f.label :is_sold, '販売停止中' %>
             </td>
           </tr>
         </tbody>

@@ -1,9 +1,10 @@
-<%= render 'admin/genres/error',obj: @item %>
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-5 mx-auto">
+      <%= render 'admin/genres/error',obj: @item %>
       <h3>商品新規登録</h3>
     </div>
+    
     <div class="col-md-6 mx-auto">
      <%= form_with model: @item,url: admin_item_path(@item.id) do |f| %>
       <table class="table table-borderless mt-3">
@@ -22,11 +23,7 @@
           </tr>
           <tr>
             <td><%= f.label "ジャンル" %></td>
-            <td>
-
-              <%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => "--選択してください--" %>
-
-              </td>
+            <td><%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => "--選択してください--" %></td>
           </tr>
           <tr>
             <td><%= f.label '税抜価格' %></td>
@@ -41,9 +38,9 @@
             <td><%= f.label "販売ステータス" %></td>
             <td>
               <%= f.radio_button :is_sold, true %>
-              <%= f.label :is_sold, '販売中' %>
+                <%= f.label :is_sold, '販売中' %>
               <%= f.radio_button :is_sold, false %>
-              <%= f.label :is_sold, '販売停止中' %>
+                <%= f.label :is_sold, '販売停止中' %>
             </td>
           </tr>
         </tbody>
