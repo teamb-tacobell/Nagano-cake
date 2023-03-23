@@ -13,7 +13,7 @@ ja:
             last_name_kana:
               blank: "フリガナ（姓）を入力してください"
             first_name_kana:
-              blank: "フリガナ（姓）を入力してください"
+              blank: "フリガナ（名）を入力してください"
             postcode:
               blank: "郵便番号を入力してください"
             residence:
@@ -56,7 +56,7 @@ ja:
         signed_up: "会員登録が完了しました。"
         signed_out: "ログアウトしました。"
       admin:
-        signed_in: "管理者ページにログインしています。"
+        signed_in: "管理者ページにログインしました。"
         signed_out: "管理者ページをログアウトしました。"
     registrations:
       customer:
