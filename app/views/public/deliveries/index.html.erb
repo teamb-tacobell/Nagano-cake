@@ -3,9 +3,9 @@
   <%= flash[:notice] %>
   <div class="row">
     <%= render "error",obj: @delivery %>
-    <table>
-      <tbody>
-        <%= form_with model: @delivery,url:deliveries_path,method: :post do |f| %>
+    <%= form_with model: @delivery,url:deliveries_path,method: :post do |f| %>
+      <table>
+        <tbody>
           <tr>
             <td>郵便番号（ハイフンなし）</td>
             <td><%= f.text_field:postcode,placeholder:"0000000" %></td>
@@ -22,9 +22,9 @@
             <td></td>
             <td><%= f.submit "新規登録",class:"btn btn-success" %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 
   <div>
@@ -52,7 +52,7 @@
           <% end %>
         </tbody>
       </table>
-   
+      
     </div>
   </div>
 </div>
