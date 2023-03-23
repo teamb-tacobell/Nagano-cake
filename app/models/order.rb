@@ -8,4 +8,8 @@ class Order < ApplicationRecord
   enum cash: { credit_card:0, transfer:1 }
   enum order_status: { waiting:0, confirm:1, making:2, preparation:3, sent:4 }
 
+  validates :postcode, presence: true
+  validates :residence, presence: true
+  validates :name, presence: true
+
 end
