@@ -2,8 +2,8 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
   def new
+    @deliveries = current_customer.deliveries.all
     @order = Order.new
-    @deliveries = Delivery.all
   end
 
   def info
@@ -22,6 +22,8 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = params[:order]["postcode"]
      @order.address = params[:order]["residence"]
      @order.name = params[:order]["name"]
+    else
+      render "new"
     end
     @cart_items = current_customer.cart_items.all
   end
@@ -50,7 +52,7 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.all
   end
 
   def show
