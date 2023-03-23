@@ -11,12 +11,12 @@
 
       <div class="d-flex flex-wrap">
         <% @items.each do |item| %>
-          <div class="col-3 mt-3">
-             <%= link_to item_path(item) do %>
+          <div class="col-3 mt-3 font-weight-bold">
+             <%= link_to item_path(item), class: "text-dark" do %>
                <%= image_tag item.image, size: '180x140' %>
+               <%= item.name %><br>
+               ¥<%= item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)
              <% end %>
-             <div class="item mt-2"><%= item.name %></div>
-             <div class="item">¥<%= item.add_tax_tax_excluded_price.to_s(:delimited) %>(税込)</div>
           </div>
         <% end %>
       </div>
