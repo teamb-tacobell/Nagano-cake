@@ -1,5 +1,5 @@
 # Nagano-cake
-<img width="1448" alt="スクリーンショット 2023-03-24 21 33 24" src="https://user-images.githubusercontent.com/123624971/227522680-1413469d-b77e-4989-8beb-dda4b7210565.png">
+<img width="1451" alt="スクリーンショット 2023-03-24 21 38 08" src="https://user-images.githubusercontent.com/123624971/227523598-108b8093-eb80-4b91-92c4-04df5be45288.png">
 
 * [概要](#概要)
 * [使用している言語フレームワークのバージョン](#使用している言語フレームワークのバージョン)
