@@ -1,5 +1,5 @@
 # Nagano-cake
-<img width="1293" alt="Nagano-cake top" src="https://user-images.githubusercontent.com/123624971/226805920-33a4b4b8-24d6-4ccf-af49-a11bc64084b0.png">
+<img width="1448" alt="スクリーンショット 2023-03-24 21 33 24" src="https://user-images.githubusercontent.com/123624971/227522680-1413469d-b77e-4989-8beb-dda4b7210565.png">
 
 * [概要](#概要)
 * [使用している言語フレームワークのバージョン](#使用している言語フレームワークのバージョン)
@@ -10,7 +10,7 @@
 ---
 
 ### 概要
-長野県にある洋菓子店「ながのCAKE」の商品の通販を想定した、ECサイトを開発しました。
+長野県にある洋菓子店「ながのCAKE」の商品の通販を想定した、ECサイトを開発しました。<br>
 ※このECサイトはDMM WEB CAMP生によるチーム開発課題です。実在するお店のサイトではありませんのでご了承ください。
 
 ### 使用している言語フレームワークのバージョン
