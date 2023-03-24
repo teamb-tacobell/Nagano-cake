@@ -1,0 +1,60 @@
+<%= flash[:notice] %>
+<div class="container my-5">
+  <div class="row">
+    <%= render "error",obj: @delivery %>
+  </div>
+  <h3><strong>配送先登録/一覧</strong></h3>
+  <div class="row my-4">
+    <%= form_with model: @delivery,url:deliveries_path,method: :post do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td>郵便番号（ハイフンなし）</td>
+            <td><%= f.text_field:postcode,placeholder:"0000000" %></td>
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td colspan="2"><%= f.text_field:residence,placeholder:"東京都渋谷区代々木神園町0-0",size:60 %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td><%= f.text_field:name,placeholder:"令和道子" %></td>
+            <td></td>
+            <td><%= f.submit "新規登録",class:"btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+  <div>
+    <div class="col-8">
+      <table class="table table-bordered border-dark">
+        <thead>
+          <tr class="table-active">
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @deliveries.each do |delivery| %>
+            <tr>
+              <td><%= delivery.postcode %></td>
+              <td><%= delivery.residence %></td>
+              <td><%= delivery.name %></td>
+              <td>
+                <%= link_to "編集する",edit_delivery_path(delivery.id),class:"btn btn-success" %>
+                <%= link_to "削除する",delivery_path(delivery.id),class:"btn btn-danger",method: :delete,"data-confirm"=>"本当に削除しますか？" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

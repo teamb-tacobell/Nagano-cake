@@ -1,0 +1,81 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              blank: "メールアドレスを入力してください"
+            last_name:
+              blank: "氏名（姓）を入力してください"
+            first_name:
+              blank: "氏名（名）を入力してください"
+            last_name_kana:
+              blank: "フリガナ（姓）を入力してください"
+            first_name_kana:
+              blank: "フリガナ（名）を入力してください"
+            postcode:
+              blank: "郵便番号を入力してください"
+            residence:
+              blank: "住所を入力してください"
+            phone_number:
+              blank: "電話番号を入力してください"
+            password:
+              blank: "パスワードを入力してください"
+        delivery:
+          attributes:
+            postcode:
+              blank: "郵便番号を入力してください"
+            residence:
+              blank: "住所を入力してください"
+            name:
+              blank: "名前を入力してください"
+        genre:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+
+        item:
+          attributes:
+            genre:
+              required: "ジャンルを選択してください"
+            image:
+              blank: "画像を選択してください"
+            name:
+              blank: "商品名を入力してください"
+            explanation:
+              blank: "商品説明を入力してください"
+            tax_excluded_price:
+              blank: "税抜価格を入力してください"
+            is_sold:
+              inclusion: "販売ステータスを選択してください"
+  devise:
+    sessions:
+      customer:
+        signed_in: "ログインしました。"
+        signed_up: "会員登録が完了しました。"
+        signed_out: "ログアウトしました。"
+      admin:
+        signed_in: "管理者ページにログインしました。"
+        signed_out: "管理者ページをログアウトしました。"
+    registrations:
+      customer:
+        signed_up: "会員登録が完了しました。"
+
+  enums:
+      order:
+          cash:
+              credit_card: "クレジットカード"
+              transfer: "銀行振込"
+          order_status:
+              waiting: "入金待ち"
+              confirm: "入金確認"
+              making: "製作中"
+              preparation: "発送準備中"
+              sent: "発送済み"
+      order_item:
+          production_status:
+              not_make: "製作不可"
+              wait_make: "製作待ち"
+              now_make: "製作中"
+              complete_make: "製作完了"

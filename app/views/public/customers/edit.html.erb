@@ -1,0 +1,48 @@
+<div class="container mt-5 mb-5">
+  <%= render "error", customer: @customer %>
+  <%= form_with model: @customer, url:customer_path, method: :patch do |f| %>
+  <div class="row">
+    <h3 class="mb-4"><strong>会員情報編集</strong></h3>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th style="width:20%">氏名</th>
+          <td>
+            <%= f.text_field :last_name %>
+            <%= f.text_field :first_name %>
+          </td>
+        </tr>
+        <tr>
+          <th style="width:20%">フリガナ</th>
+          <td>
+            <%= f.text_field :last_name_kana %>
+            <%= f.text_field :first_name_kana %>
+          </td>
+        </tr>
+        <tr>
+          <th style="width:20%">郵便番号</th>
+          <td><%= f.text_field :postcode %></td>
+        </tr>
+        <tr>
+          <th style="width:20%">住所</th>
+          <td><%= f.text_area :residence, size: "45x2" %></td>
+        </tr>
+        <tr>
+          <th style="width:20%">電話番号</th>
+          <td><%= f.text_field :phone_number %></td>
+        </tr>
+        <tr>
+          <th style="width:20%">メールアドレス</th>
+          <td><%= f.text_field :email %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="justify-content-center">
+      <%= f.submit '編集内容を保存', class: "btn btn-success" %>
+      <%= link_to customer_quitcheck_path do %>
+        <button class="btn btn-danger" type="submit">退会する</button>
+      <% end %>
+    </div>
+    <% end %>
+</div>
